@@ -1,0 +1,17 @@
+int maxSubArraySum(vector<int>& nums) {
+    // Initialize variables
+    int maxSoFar = nums[0]; // Tracks the overall maximum sum
+    int currentMax = nums[0]; // Tracks the maximum sum ending at the current position
+
+    // Iterate through the array starting from the second element
+    for (int i = 1; i < nums.size(); i++) {
+        // Update currentMax to include nums[i] or reset to nums[i] if it's better
+        currentMax = max(nums[i], currentMax + nums[i]);
+
+        // Update maxSoFar if currentMax is greater
+        maxSoFar = max(maxSoFar, currentMax);
+    }
+
+    // Return the overall maximum sum
+    return maxSoFar;
+}

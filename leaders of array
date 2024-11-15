@@ -1,0 +1,19 @@
+class Solution {
+    // Function to find the leaders in the array.
+  public:
+    vector<int> leaders(vector<int>& arr) {
+        // Code h000ere
+        int maxv=INT_MIN;
+         int n=arr.size();
+         vector<int> result;
+           
+        for(int i=n-1;i>=0;i--){
+            if(maxv<=arr[i]){
+                maxv=arr[i];
+                result.push_back(arr[i]);
+            }
+        }
+         reverse(result.begin(), result.end());
+        return result;
+    }
+};
